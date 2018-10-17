@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}blog titles{% endblock %}
+
+{% block content %}
+<div class="row text-center">
+    <h1>发版平台</h1>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-8">
+        <ul>
+        {% for blog in blogs %}
+            {#这里的href只是一个数字，但是可以和当前url拼接192.168.11.2:8000/blog/n #}
+            <li><a href="{{ blog.id }}">{{ blog.title }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+

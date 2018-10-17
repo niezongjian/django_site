@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+ <div class="row text-center">
+    <h1>Login</h1>
+    <form class="form-horizontal" action="{% url 'account:user_login' %}" method="post">{% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}" class="col-md-5 control-label" style="color:red"><span class="glyphicon glyphicon-user">Username</span></label>
+            <div class="col-md-6 text-left">{{ form.username }}</div>
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.password.id_for_label }}" class="col-md-5 control-label" style="color:blue"><span class="glyphicon glyphicon-user">Password</span></label>
+            <div class="col-md-6 text-left">{{ form.password }}</div>
+        </div>
+
+     <input type="submit" class="btn btn-primary btn-lg" value="Login">
+    </form>
+    <p style="margin-top: 10px">忘记密码？请进行<a href="{% url 'account:password_reset' %}">密码重置</a></p>
+    <p style="margin-top: 10px">如果没有用户名，或许您需要<a href="{% url 'account:user_register' %}">注册</a></p>
+ </div>
+{% endblock %}
