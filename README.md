@@ -1,1 +1,1 @@
-# django_site
+# 跟老齐学python项目
